@@ -1,0 +1,75 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- Hot:
+    - Proxmox:
+        href: {{HOMEPAGE_VAR_PVE_URL}}
+        icon: proxmox.png
+        description: {{HOMEPAGE_VAR_PVE_URL}}
+        widget:
+            type: proxmox
+            url: {{HOMEPAGE_VAR_PVE_URL}}
+            username: {{HOMEPAGE_VAR_PVE_USERNAME}}
+            password: {{HOMEPAGE_VAR_PVE_PASSWORD}}
+
+    - Immich: 
+        href: {{HOMEPAGE_VAR_IMMICH_URL}}
+        icon: immich.png
+        description: Immich Self-hosted photo and video backup solution
+        widget:
+            type: immich
+            url: {{HOMEPAGE_VAR_IMMICH_URL}}
+            key: {{HOMEPAGE_VAR_IMMICH_API_KEY}}
+            fields: ["photos", "videos", "storage"]
+
+    - Adguard:
+        href: {{HOMEPAGE_VAR_ADGUARD_URL}}
+        icon: adguard-home.png
+        description: DNS server that blocks ads and trackers on all your devices within your network.
+        widget:
+            type: adguard
+            url: {{HOMEPAGE_VAR_ADGUARD_URL}}
+            username: {{HOMEPAGE_VAR_ADGUARD_USERNAME}}
+            password: {{HOMEPAGE_VAR_ADGUARD_PASSWORD}}
+            fields: ["queries", "blocked", "latency"]
+
+- My Third Group:
+    - Deluge:
+        href: {{HOMEPAGE_VAR_DELUGE_URL}}
+        icon: deluge.png
+        description: Deluge BitTorrent Client is a free and open-source, cross-platform BitTorrent client written in Python.
+        widget:
+            type: deluge
+            url: {{HOMEPAGE_VAR_DELUGE_URL}}
+            password: {{HOMEPAGE_VAR_DELUGE_PASSWORD}} 
+
+    - SpeedTest:
+        href: {{HOMEPAGE_VAR_SPEEDTEST_URL}}
+        icon: "{{HOMEPAGE_VAR_SPEEDTEST_URL}}/img/speedtest-tracker-icon.png"
+        widget:
+            type: speedtest
+            url: {{HOMEPAGE_VAR_SPEEDTEST_URL}}
+            bitratePrecision: 3 # optional, default is 0
+
+    - Tailscale:
+        href: {{HOMEPAGE_VAR_TAILSCALE_URL}}
+        icon: tailscale-light.png
+        description: Modern VPN service designed to simplify network access and enhance security. 
+
+- Time:
+    - Calandar:
+        widget:
+            type: calendar
+            firstDayInWeek: monday
+            view: monthly 
+            maxEvents: 10
+            showTime: true 
+            timezone: {{HOMEPAGE_VAR_CALENDAR_TIMEZONE}}
+            integrations:
+                - type: ical 
+                  url: {{HOMEPAGE_VAR_CALENDAR_ICS}}
+                  name: My Events
+                  color: zinc 
+                  params: 
+                    showName: true
