@@ -34,31 +34,65 @@
             password: {{HOMEPAGE_VAR_ADGUARD_PASSWORD}}
             fields: ["queries", "blocked", "latency"]
 
-- My Third Group:
+- Media:
+
+    - Overseerr:
+        href: {{HOMEPAGE_VAR_OVERSEERR_URL}}
+        icon: overseerr.png
+        description: It helps you find and request media for your Plex server
+        widget:
+            type: overseerr
+            url: {{HOMEPAGE_VAR_OVERSEERR_URL}}
+            fields: ["pending", "approved", "available", "processing"]
+            key: {{HOMEPAGE_VAR_OVERSEERR_API_KEY}}
+
     - Deluge:
         href: {{HOMEPAGE_VAR_DELUGE_URL}}
         icon: deluge.png
-        description: Deluge BitTorrent Client is a free and open-source, cross-platform BitTorrent client written in Python.
+        description: Free and open-source, BitTorrent client written in Python.
         widget:
             type: deluge
             url: {{HOMEPAGE_VAR_DELUGE_URL}}
             password: {{HOMEPAGE_VAR_DELUGE_PASSWORD}} 
 
+    - Plex:
+        href: {{HOMEPAGE_VAR_PLEX_PUBLIC_URL}}
+        icon: plex.png
+        description: Plex
+        widget:
+            type: plex
+            url: {{HOMEPAGE_VAR_PLEX_URL}}
+            key: {{HOMEPAGE_VAR_PLEX_API_KEY}} 
+            fields: ["streams", "movies", "tv"]
+
     - SpeedTest:
         href: {{HOMEPAGE_VAR_SPEEDTEST_URL}}
         icon: "{{HOMEPAGE_VAR_SPEEDTEST_URL}}/img/speedtest-tracker-icon.png"
+        description: Self-hosted internet performance tracking application
         widget:
             type: speedtest
             url: {{HOMEPAGE_VAR_SPEEDTEST_URL}}
-            bitratePrecision: 3 # optional, default is 0
+            bitratePrecision: 3 
+            fields: ["download", "upload"]
+    
+    - Home Assistant:
+        href: {{HOMEPAGE_VAR_HOMEASSISTANT_URL}}
+        icon: home-assistant.png
+        description: Versatile and trustworthy smart home hub that works with over 1000 brands and integrations.
+        widget:
+            type: homeassistant
+            url: {{HOMEPAGE_VAR_HOMEASSISTANT_URL}}
+            key: {{HOMEPAGE_VAR_HOMEASSISTANT_API_KEY}}
+            custom:
+                - state: sensor.knight_energy_cost
+                  label: Energy Cost
 
-    - Tailscale:
-        href: {{HOMEPAGE_VAR_TAILSCALE_URL}}
-        icon: tailscale-light.png
-        description: Modern VPN service designed to simplify network access and enhance security. 
+                - state: sensor.arkhamknight_current_power
+                  label: Current Power
 
-- Time:
-    - Calandar:
+
+- Information:
+    - Calendar:
         widget:
             type: calendar
             firstDayInWeek: monday

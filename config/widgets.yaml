@@ -2,11 +2,19 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/service-widgets
 
-- resources:
-    cpu: true
-    memory: true
-    disk: /
+- openweathermap:
+    label: {{HOMEPAGE_VAR_WEATHER_LOCATION_LABEL}} #optional
+    latitude: {{HOMEPAGE_VAR_WEATHER_LATITUDE}}
+    longitude: {{HOMEPAGE_VAR_WEATHER_LONGITUDE}}
+    units: {{HOMEPAGE_VAR_WEATHER_UNITS}} # or imperial
+    provider: {{HOMEPAGE_VAR_WEATHER_PROVIDER}}
+    apiKey: {{HOMEPAGE_VAR_WEATHER_API_KEY}} # required only if not using provider, this reveals api key in requests
+    cache: 5 # Time in minutes to cache API responses, to stay within limits
+    format: # optional, Intl.NumberFormat options
+        maximumFractionDigits: 1
+
+
 
 - search:
-    provider: duckduckgo
+    provider: [duckduckgo, brave, google]
     target: _blank

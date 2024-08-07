@@ -2,13 +2,26 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/settings
 
-providers:
-  openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+
+
+headerStyle: boxedWidgets
+hideVersion: true
 
 layout:
   Hot:
+    tab: Home
     style: row
     columns: 3
     header: false
     useEqualHeights: true 
+  
+  Media:
+    tab: Home
+    style: row
+    columns: 2
+    header: false
+    useEqualHeights: true 
+
+  Information: 
+    header: false
+    tab: Information
