@@ -25,8 +25,5 @@ jobs:
         # Pull the latest changes from the GitHub repository
         git pull origin main
 
-        # Stop and remove existing Docker containers
-        docker compose -f $DOCKER_COMPOSE_FILE down
-
-        # Rebuild and start the Docker containers
-        docker compose -f $DOCKER_COMPOSE_FILE up -d
+        docker compose down
+        docker compose up -d
