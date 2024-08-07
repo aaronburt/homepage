@@ -24,4 +24,6 @@ layout:
 
   Information: 
     header: false
+    style: row
+    columns: 1
     tab: Information
