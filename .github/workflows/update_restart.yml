@@ -1,0 +1,32 @@
+name: Update and Restart Docker
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to monitor
+
+jobs:
+  update-docker:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Pull latest changes and restart Docker
+      run: |
+        # Define your project directory and Docker compose file
+        PROJECT_DIR="/home/gitrunner/homepage"
+        DOCKER_COMPOSE_FILE="docker-compose.yml"
+
+        # Navigate to the project directory
+        cd $PROJECT_DIR
+
+        # Pull the latest changes from the GitHub repository
+        git pull origin main
+
+        # Stop and remove existing Docker containers
+        docker-compose -f $DOCKER_COMPOSE_FILE down
+
+        # Rebuild and start the Docker containers
+        docker-compose -f $DOCKER_COMPOSE_FILE up -d
