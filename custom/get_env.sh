@@ -51,6 +51,6 @@ for key in $VARS; do
     # Export the variable and append to ~/.profile
     if [ -n "$value" ]; then
 #        echo "$key=$value"
-        echo "export $key=\"$value\"" >> ~/.profile
+        echo "export $key=\"$value\"" >> /home/node/.profile
     fi
 done
