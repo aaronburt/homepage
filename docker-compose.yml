@@ -12,4 +12,4 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-    command: ["sh", "-c", "chmod -R 777 custom/ && ./custom/get_env.sh && . ~/.profile && env"]
+    command: ["sh", "-c", "./custom/get_env.sh && . ~/.profile && env"]
