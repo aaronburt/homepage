@@ -6,10 +6,10 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./custom:/app/custom
+      - ./custom/get_env.sh:/app/custom/get_env.sh
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     env_file:
       - .env
-    entrypoint: ["/app/custom/get_env.sh", "docker-entrypoint.sh"]
+    command: ["sh", "-c", "chmod -R 777 custom/ && ./custom/get_env.sh && . ~/.profile && env"]
