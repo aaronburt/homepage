@@ -49,26 +49,26 @@ jobs:
     - name: 'Create .env file'
       run: |
           touch /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_PVE_URL=${{ env.HOMEPAGE_VAR_PVE_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_PVE_USERNAME=${{ env.HOMEPAGE_VAR_PVE_USERNAME }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_PVE_PASSWORD=${{ env.HOMEPAGE_VAR_PVE_PASSWORD }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_IMMICH_URL=${{ env.HOMEPAGE_VAR_IMMICH_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_IMMICH_API_KEY=${{ env.HOMEPAGE_VAR_IMMICH_API_KEY }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_ADGUARD_URL=${{ env.HOMEPAGE_VAR_ADGUARD_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_ADGUARD_USERNAME=${{ env.HOMEPAGE_VAR_ADGUARD_USERNAME }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_ADGUARD_PASSWORD=${{ env.HOMEPAGE_VAR_ADGUARD_PASSWORD }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_OVERSEERR_URL=${{ env.HOMEPAGE_VAR_OVERSEERR_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_OVERSEERR_API_KEY=${{ env.HOMEPAGE_VAR_OVERSEERR_API_KEY }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_DELUGE_URL=${{ env.HOMEPAGE_VAR_DELUGE_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_DELUGE_PASSWORD=${{ env.HOMEPAGE_VAR_DELUGE_PASSWORD }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_PLEX_PUBLIC_URL=${{ env.HOMEPAGE_VAR_PLEX_PUBLIC_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_PLEX_URL=${{ env.HOMEPAGE_VAR_PLEX_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_PLEX_API_KEY=${{ env.HOMEPAGE_VAR_PLEX_API_KEY }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_SPEEDTEST_URL=${{ env.HOMEPAGE_VAR_SPEEDTEST_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_HOMEASSISTANT_URL=${{ env.HOMEPAGE_VAR_HOMEASSISTANT_URL }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_HOMEASSISTANT_API_KEY=${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_CALENDAR_TIMEZONE=${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}" >> /home/gitrunner/homepage/.env
-          echo "envkey_HOMEPAGE_VAR_CALENDAR_ICS=${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_PVE_URL=${{ env.HOMEPAGE_VAR_PVE_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_PVE_USERNAME=${{ env.HOMEPAGE_VAR_PVE_USERNAME }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_PVE_PASSWORD=${{ env.HOMEPAGE_VAR_PVE_PASSWORD }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_IMMICH_URL=${{ env.HOMEPAGE_VAR_IMMICH_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_IMMICH_API_KEY=${{ env.HOMEPAGE_VAR_IMMICH_API_KEY }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_ADGUARD_URL=${{ env.HOMEPAGE_VAR_ADGUARD_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_ADGUARD_USERNAME=${{ env.HOMEPAGE_VAR_ADGUARD_USERNAME }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_ADGUARD_PASSWORD=${{ env.HOMEPAGE_VAR_ADGUARD_PASSWORD }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_OVERSEERR_URL=${{ env.HOMEPAGE_VAR_OVERSEERR_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_OVERSEERR_API_KEY=${{ env.HOMEPAGE_VAR_OVERSEERR_API_KEY }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_DELUGE_URL=${{ env.HOMEPAGE_VAR_DELUGE_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_DELUGE_PASSWORD=${{ env.HOMEPAGE_VAR_DELUGE_PASSWORD }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_PLEX_PUBLIC_URL=${{ env.HOMEPAGE_VAR_PLEX_PUBLIC_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_PLEX_URL=${{ env.HOMEPAGE_VAR_PLEX_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_PLEX_API_KEY=${{ env.HOMEPAGE_VAR_PLEX_API_KEY }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_SPEEDTEST_URL=${{ env.HOMEPAGE_VAR_SPEEDTEST_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_HOMEASSISTANT_URL=${{ env.HOMEPAGE_VAR_HOMEASSISTANT_URL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_HOMEASSISTANT_API_KEY=${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_CALENDAR_TIMEZONE=${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_CALENDAR_ICS=${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}" >> /home/gitrunner/homepage/.env
           cat /home/gitrunner/homepage/.env
         
         
