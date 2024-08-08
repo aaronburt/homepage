@@ -41,33 +41,31 @@ jobs:
           kv/data/homepage HOMEPAGE_VAR_CALENDAR_TIMEZONE | HOMEPAGE_VAR_CALENDAR_TIMEZONE ;
           kv/data/homepage HOMEPAGE_VAR_CALENDAR_ICS | HOMEPAGE_VAR_CALENDAR_ICS ;
     
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v2.0
-      with:
-        envkey_HOMEPAGE_VAR_PVE_URL: ${{ env.HOMEPAGE_VAR_PVE_URL }}
-        envkey_HOMEPAGE_VAR_PVE_USERNAME: ${{ env.HOMEPAGE_VAR_PVE_USERNAME }}
-        envkey_HOMEPAGE_VAR_PVE_PASSWORD: ${{ env.HOMEPAGE_VAR_PVE_PASSWORD }}
-        envkey_HOMEPAGE_VAR_IMMICH_URL: ${{ env.HOMEPAGE_VAR_IMMICH_URL }}
-        envkey_HOMEPAGE_VAR_IMMICH_API_KEY: ${{ env.HOMEPAGE_VAR_IMMICH_API_KEY }}
-        envkey_HOMEPAGE_VAR_ADGUARD_URL: ${{ env.HOMEPAGE_VAR_ADGUARD_URL }}
-        envkey_HOMEPAGE_VAR_ADGUARD_USERNAME: ${{ env.HOMEPAGE_VAR_ADGUARD_USERNAME }}
-        envkey_HOMEPAGE_VAR_ADGUARD_PASSWORD: ${{ env.HOMEPAGE_VAR_ADGUARD_PASSWORD }}
-        envkey_HOMEPAGE_VAR_OVERSEERR_URL: ${{ env.HOMEPAGE_VAR_OVERSEERR_URL }}
-        envkey_HOMEPAGE_VAR_OVERSEERR_API_KEY: ${{ env.HOMEPAGE_VAR_OVERSEERR_API_KEY }}
-        envkey_HOMEPAGE_VAR_DELUGE_URL: ${{ env.HOMEPAGE_VAR_DELUGE_URL }}
-        envkey_HOMEPAGE_VAR_DELUGE_PASSWORD: ${{ env.HOMEPAGE_VAR_DELUGE_PASSWORD }}
-        envkey_HOMEPAGE_VAR_PLEX_PUBLIC_URL: ${{ env.HOMEPAGE_VAR_PLEX_PUBLIC_URL }}
-        envkey_HOMEPAGE_VAR_PLEX_URL: ${{ env.HOMEPAGE_VAR_PLEX_URL }}
-        envkey_HOMEPAGE_VAR_PLEX_API_KEY: ${{ env.HOMEPAGE_VAR_PLEX_API_KEY }}
-        envkey_HOMEPAGE_VAR_SPEEDTEST_URL: ${{ env.HOMEPAGE_VAR_SPEEDTEST_URL }}
-        envkey_HOMEPAGE_VAR_HOMEASSISTANT_URL: ${{ env.HOMEPAGE_VAR_HOMEASSISTANT_URL }}
-        envkey_HOMEPAGE_VAR_HOMEASSISTANT_API_KEY: ${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}
-        envkey_HOMEPAGE_VAR_CALENDAR_TIMEZONE: ${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}
-        envkey_HOMEPAGE_VAR_CALENDAR_ICS: ${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}
-        directory: .
-        file_name: envfile
-        fail_on_empty: false
-        sort_keys: false
+    - name: 'Create .env file'
+      run: |
+          touch .env
+          echo "envkey_HOMEPAGE_VAR_PVE_URL=${{ env.HOMEPAGE_VAR_PVE_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_PVE_USERNAME=${{ env.HOMEPAGE_VAR_PVE_USERNAME }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_PVE_PASSWORD=${{ env.HOMEPAGE_VAR_PVE_PASSWORD }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_IMMICH_URL=${{ env.HOMEPAGE_VAR_IMMICH_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_IMMICH_API_KEY=${{ env.HOMEPAGE_VAR_IMMICH_API_KEY }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_ADGUARD_URL=${{ env.HOMEPAGE_VAR_ADGUARD_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_ADGUARD_USERNAME=${{ env.HOMEPAGE_VAR_ADGUARD_USERNAME }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_ADGUARD_PASSWORD=${{ env.HOMEPAGE_VAR_ADGUARD_PASSWORD }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_OVERSEERR_URL=${{ env.HOMEPAGE_VAR_OVERSEERR_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_OVERSEERR_API_KEY=${{ env.HOMEPAGE_VAR_OVERSEERR_API_KEY }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_DELUGE_URL=${{ env.HOMEPAGE_VAR_DELUGE_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_DELUGE_PASSWORD=${{ env.HOMEPAGE_VAR_DELUGE_PASSWORD }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_PLEX_PUBLIC_URL=${{ env.HOMEPAGE_VAR_PLEX_PUBLIC_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_PLEX_URL=${{ env.HOMEPAGE_VAR_PLEX_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_PLEX_API_KEY=${{ env.HOMEPAGE_VAR_PLEX_API_KEY }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_SPEEDTEST_URL=${{ env.HOMEPAGE_VAR_SPEEDTEST_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_HOMEASSISTANT_URL=${{ env.HOMEPAGE_VAR_HOMEASSISTANT_URL }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_HOMEASSISTANT_API_KEY=${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_CALENDAR_TIMEZONE=${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}" >> .env
+          echo "envkey_HOMEPAGE_VAR_CALENDAR_ICS=${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}" >> .env
+          cat .env
+        
         
 
     - name: Pull latest changes and restart Docker
