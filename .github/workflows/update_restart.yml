@@ -64,7 +64,7 @@ jobs:
         envkey_HOMEPAGE_VAR_HOMEASSISTANT_API_KEY: ${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}
         envkey_HOMEPAGE_VAR_CALENDAR_TIMEZONE: ${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}
         envkey_HOMEPAGE_VAR_CALENDAR_ICS: ${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}
-        directory: /home/gitrunner/homepage
+        directory: .
         file_name: envfile
         fail_on_empty: false
         sort_keys: false
@@ -72,6 +72,8 @@ jobs:
 
     - name: Pull latest changes and restart Docker
       run: |
+        echo "PVE URL is $HOMEPAGE_VAR_PVE_URL"
+
         # Define your project directory and Docker compose file
         PROJECT_DIR="/home/gitrunner/homepage"
         DOCKER_COMPOSE_FILE="docker-compose.yml"
