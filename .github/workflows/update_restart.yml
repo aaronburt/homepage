@@ -13,9 +13,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v2.0
+      with: 
+        envkey_VAULT_TOKEN: ${{ secrets.VAULT_TOKEN }}
+        envkey_VAULT_ADDR: ${{ secrets.VAULT_ADDR }}
+
     - name: Pull latest changes and restart Docker
-      env: 
-        VAULT_TOKEN:  ${{ secrets.VAULT_TOKEN }}
       run: |
         # Define your project directory and Docker compose file
         PROJECT_DIR="/home/gitrunner/homepage"

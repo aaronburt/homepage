@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Set the Vault address
-export VAULT_ADDR='https://hashi-vault'
-export VAULT_TOKEN=hvs.NOTREALFUCKINGTOKENLOL
-
 # Retrieve the secrets
 SECRETS=$(curl -s -H "X-Vault-Token: $VAULT_TOKEN" "$VAULT_ADDR/v1/kv/data/homepage")
 
