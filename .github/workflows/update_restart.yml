@@ -64,11 +64,10 @@ jobs:
         envkey_HOMEPAGE_VAR_HOMEASSISTANT_API_KEY: ${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}
         envkey_HOMEPAGE_VAR_CALENDAR_TIMEZONE: ${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}
         envkey_HOMEPAGE_VAR_CALENDAR_ICS: ${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}
-        file_name: .env
+        directory: /home/gitrunner/homepage
+        file_name: envfile
         fail_on_empty: false
         sort_keys: false
-        
-    
         
 
     - name: Pull latest changes and restart Docker
