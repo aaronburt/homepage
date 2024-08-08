@@ -12,4 +12,3 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-    command: ["sh", "-c", "./custom/get_env.sh && . ~/.profile && env"]
