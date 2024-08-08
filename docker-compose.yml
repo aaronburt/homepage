@@ -12,4 +12,4 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-    entrypoint: ["/app/custom/get_env.sh && docker-entrypoint.sh"]
+    entrypoint: ["/app/custom/get_env.sh", "docker-entrypoint.sh"]
