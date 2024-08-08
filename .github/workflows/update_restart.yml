@@ -20,34 +20,6 @@ jobs:
         tlsSkipVerify: true
         token: ${{ secrets.VAULT_TOKEN }}
         secrets: |
-          /v1/kv/data/homepage HOMEPAGE_VAR_PVE_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_PVE_USERNAME
-          /v1/kv/data/homepage HOMEPAGE_VAR_PVE_PASSWORD
-          /v1/kv/data/homepage HOMEPAGE_VAR_IMMICH_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_IMMICH_API_KEY
-          /v1/kv/data/homepage HOMEPAGE_VAR_ADGUARD_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_ADGUARD_USERNAME
-          /v1/kv/data/homepage HOMEPAGE_VAR_ADGUARD_PASSWORD
-          /v1/kv/data/homepage HOMEPAGE_VAR_OVERSEERR_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_OVERSEERR_API_KEY
-          /v1/kv/data/homepage HOMEPAGE_VAR_DELUGE_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_DELUGE_PASSWORD
-          /v1/kv/data/homepage HOMEPAGE_VAR_PLEX_PUBLIC_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_PLEX_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_PLEX_API_KEY
-          /v1/kv/data/homepage HOMEPAGE_VAR_SPEEDTEST_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_HOMEASSISTANT_URL
-          /v1/kv/data/homepage HOMEPAGE_VAR_HOMEASSISTANT_API_KEY
-          /v1/kv/data/homepage HOMEPAGE_VAR_CALENDAR_TIMEZONE
-          /v1/kv/data/homepage HOMEPAGE_VAR_CALENDAR_ICS
-    
-    - name: Import Secrets
-      uses: hashicorp/vault-action@v2
-      with:
-        url: ${{ secrets.VAULT_ADDR }}
-        tlsSkipVerify: true
-        token: ${{ secrets.VAULT_TOKEN }}
-        secrets: |
           kv/data/homepage HOMEPAGE_VAR_PVE_URL | HOMEPAGE_VAR_PVE_URL
           kv/data/homepage HOMEPAGE_VAR_PVE_USERNAME | HOMEPAGE_VAR_PVE_USERNAME
           kv/data/homepage HOMEPAGE_VAR_PVE_PASSWORD | HOMEPAGE_VAR_PVE_PASSWORD
