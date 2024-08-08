@@ -41,29 +41,34 @@ jobs:
           /v1/kv/data/homepage HOMEPAGE_VAR_CALENDAR_TIMEZONE
           /v1/kv/data/homepage HOMEPAGE_VAR_CALENDAR_ICS
     
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v2.0
-      with: 
-        envkey_HOMEPAGE_VAR_PVE_URL: ${{ env.HOMEPAGE_VAR_PVE_URL }}
-        envkey_HOMEPAGE_VAR_PVE_USERNAME: ${{ env.HOMEPAGE_VAR_PVE_USERNAME }}
-        envkey_HOMEPAGE_VAR_PVE_PASSWORD: ${{ env.HOMEPAGE_VAR_PVE_PASSWORD }}
-        envkey_HOMEPAGE_VAR_IMMICH_URL: ${{ env.HOMEPAGE_VAR_IMMICH_URL }}
-        envkey_HOMEPAGE_VAR_IMMICH_API_KEY: ${{ env.HOMEPAGE_VAR_IMMICH_API_KEY }}
-        envkey_HOMEPAGE_VAR_ADGUARD_URL: ${{ env.HOMEPAGE_VAR_ADGUARD_URL }}
-        envkey_HOMEPAGE_VAR_ADGUARD_USERNAME: ${{ env.HOMEPAGE_VAR_ADGUARD_USERNAME }}
-        envkey_HOMEPAGE_VAR_ADGUARD_PASSWORD: ${{ env.HOMEPAGE_VAR_ADGUARD_PASSWORD }}
-        envkey_HOMEPAGE_VAR_OVERSEERR_URL: ${{ env.HOMEPAGE_VAR_OVERSEERR_URL }}
-        envkey_HOMEPAGE_VAR_OVERSEERR_API_KEY: ${{ env.HOMEPAGE_VAR_OVERSEERR_API_KEY }}
-        envkey_HOMEPAGE_VAR_DELUGE_URL: ${{ env.HOMEPAGE_VAR_DELUGE_URL }}
-        envkey_HOMEPAGE_VAR_DELUGE_PASSWORD: ${{ env.HOMEPAGE_VAR_DELUGE_PASSWORD }}
-        envkey_HOMEPAGE_VAR_PLEX_PUBLIC_URL: ${{ env.HOMEPAGE_VAR_PLEX_PUBLIC_URL }}
-        envkey_HOMEPAGE_VAR_PLEX_URL: ${{ env.HOMEPAGE_VAR_PLEX_URL }}
-        envkey_HOMEPAGE_VAR_PLEX_API_KEY: ${{ env.HOMEPAGE_VAR_PLEX_API_KEY }}
-        envkey_HOMEPAGE_VAR_SPEEDTEST_URL: ${{ env.HOMEPAGE_VAR_SPEEDTEST_URL }}
-        envkey_HOMEPAGE_VAR_HOMEASSISTANT_URL: ${{ env.HOMEPAGE_VAR_HOMEASSISTANT_URL }}
-        envkey_HOMEPAGE_VAR_HOMEASSISTANT_API_KEY: ${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}
-        envkey_HOMEPAGE_VAR_CALENDAR_TIMEZONE: ${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}
-        envkey_HOMEPAGE_VAR_CALENDAR_ICS: ${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}
+    - name: Import Secrets
+      uses: hashicorp/vault-action@v2
+      with:
+        url: ${{ secrets.VAULT_ADDR }}
+        tlsSkipVerify: true
+        token: ${{ secrets.VAULT_TOKEN }}
+        secrets: |
+          /v1/kv/data/homepage HOMEPAGE_VAR_PVE_URL | HOMEPAGE_VAR_PVE_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_PVE_USERNAME | HOMEPAGE_VAR_PVE_USERNAME
+          /v1/kv/data/homepage HOMEPAGE_VAR_PVE_PASSWORD | HOMEPAGE_VAR_PVE_PASSWORD
+          /v1/kv/data/homepage HOMEPAGE_VAR_IMMICH_URL | HOMEPAGE_VAR_IMMICH_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_IMMICH_API_KEY | HOMEPAGE_VAR_IMMICH_API_KEY
+          /v1/kv/data/homepage HOMEPAGE_VAR_ADGUARD_URL | HOMEPAGE_VAR_ADGUARD_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_ADGUARD_USERNAME | HOMEPAGE_VAR_ADGUARD_USERNAME
+          /v1/kv/data/homepage HOMEPAGE_VAR_ADGUARD_PASSWORD | HOMEPAGE_VAR_ADGUARD_PASSWORD
+          /v1/kv/data/homepage HOMEPAGE_VAR_OVERSEERR_URL | HOMEPAGE_VAR_OVERSEERR_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_OVERSEERR_API_KEY | HOMEPAGE_VAR_OVERSEERR_API_KEY
+          /v1/kv/data/homepage HOMEPAGE_VAR_DELUGE_URL | HOMEPAGE_VAR_DELUGE_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_DELUGE_PASSWORD | HOMEPAGE_VAR_DELUGE_PASSWORD
+          /v1/kv/data/homepage HOMEPAGE_VAR_PLEX_PUBLIC_URL | HOMEPAGE_VAR_PLEX_PUBLIC_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_PLEX_URL | HOMEPAGE_VAR_PLEX_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_PLEX_API_KEY | HOMEPAGE_VAR_PLEX_API_KEY
+          /v1/kv/data/homepage HOMEPAGE_VAR_SPEEDTEST_URL | HOMEPAGE_VAR_SPEEDTEST_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_HOMEASSISTANT_URL | HOMEPAGE_VAR_HOMEASSISTANT_URL
+          /v1/kv/data/homepage HOMEPAGE_VAR_HOMEASSISTANT_API_KEY | HOMEPAGE_VAR_HOMEASSISTANT_API_KEY
+          /v1/kv/data/homepage HOMEPAGE_VAR_CALENDAR_TIMEZONE | HOMEPAGE_VAR_CALENDAR_TIMEZONE
+          /v1/kv/data/homepage HOMEPAGE_VAR_CALENDAR_ICS | HOMEPAGE_VAR_CALENDAR_ICS
+        
 
     - name: Pull latest changes and restart Docker
       run: |
@@ -76,6 +81,6 @@ jobs:
 
         # Pull the latest changes from the GitHub repository
         git pull origin main
-                
+
         docker compose down
         docker compose up -d
