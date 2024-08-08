@@ -6,8 +6,8 @@ services:
     ports:
       - 3000:3000
     volumes:
+      - ./custom:/app/custom
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
-    env_file:
-      - ".env"
+    entrypoint: ["/custom/get_env.sh && docker-entrypoint.sh"]
