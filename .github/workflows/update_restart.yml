@@ -40,6 +40,12 @@ jobs:
           kv/data/homepage HOMEPAGE_VAR_HOMEASSISTANT_API_KEY | HOMEPAGE_VAR_HOMEASSISTANT_API_KEY ;
           kv/data/homepage HOMEPAGE_VAR_CALENDAR_TIMEZONE | HOMEPAGE_VAR_CALENDAR_TIMEZONE ;
           kv/data/homepage HOMEPAGE_VAR_CALENDAR_ICS | HOMEPAGE_VAR_CALENDAR_ICS ;
+          kv/data/homepage HOMEPAGE_VAR_WEATHER_LOCATION_LABEL | HOMEPAGE_VAR_WEATHER_LOCATION_LABEL ;
+          kv/data/homepage HOMEPAGE_VAR_WEATHER_LATITUDE | HOMEPAGE_VAR_WEATHER_LATITUDE ;
+          kv/data/homepage HOMEPAGE_VAR_WEATHER_LONGITUDE | HOMEPAGE_VAR_WEATHER_LONGITUDE ;
+          kv/data/homepage HOMEPAGE_VAR_WEATHER_PROVIDER | HOMEPAGE_VAR_WEATHER_PROVIDER ;
+          kv/data/homepage HOMEPAGE_VAR_WEATHER_API_KEY | HOMEPAGE_VAR_WEATHER_API_KEY ;
+          kv/data/homepage HOMEPAGE_VAR_WEATHER_UNITS | HOMEPAGE_VAR_WEATHER_UNITS ;
 
     - name: 'Purge old .env'
       run: | 
@@ -69,6 +75,12 @@ jobs:
           echo "HOMEPAGE_VAR_HOMEASSISTANT_API_KEY=${{ env.HOMEPAGE_VAR_HOMEASSISTANT_API_KEY }}" >> /home/gitrunner/homepage/.env
           echo "HOMEPAGE_VAR_CALENDAR_TIMEZONE=${{ env.HOMEPAGE_VAR_CALENDAR_TIMEZONE }}" >> /home/gitrunner/homepage/.env
           echo "HOMEPAGE_VAR_CALENDAR_ICS=${{ env.HOMEPAGE_VAR_CALENDAR_ICS }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_WEATHER_LOCATION_LABEL=${{ env.HOMEPAGE_VAR_WEATHER_LOCATION_LABEL }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_WEATHER_LATITUDE=${{ env.HOMEPAGE_VAR_WEATHER_LATITUDE }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_WEATHER_LONGITUDE=${{ env.HOMEPAGE_VAR_WEATHER_LONGITUDE }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_WEATHER_UNITS=${{ env.HOMEPAGE_VAR_WEATHER_UNITS }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_WEATHER_PROVIDER=${{ env.HOMEPAGE_VAR_WEATHER_PROVIDER }}" >> /home/gitrunner/homepage/.env
+          echo "HOMEPAGE_VAR_WEATHER_API_KEY=${{ env.HOMEPAGE_VAR_WEATHER_API_KEY }}" >> /home/gitrunner/homepage/.env
           cat /home/gitrunner/homepage/.env
         
         

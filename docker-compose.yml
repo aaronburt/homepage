@@ -6,7 +6,6 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./custom/get_env.sh:/app/custom/get_env.sh
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
