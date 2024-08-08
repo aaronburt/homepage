@@ -41,6 +41,11 @@ jobs:
           kv/data/homepage HOMEPAGE_VAR_CALENDAR_TIMEZONE | HOMEPAGE_VAR_CALENDAR_TIMEZONE ;
           kv/data/homepage HOMEPAGE_VAR_CALENDAR_ICS | HOMEPAGE_VAR_CALENDAR_ICS ;
 
+    - name: 'Purge old .env'
+      run: | 
+          rm /home/gitrunner/homepage/.env
+
+
     - name: 'Create .env file'
       run: |
           touch /home/gitrunner/homepage/.env
