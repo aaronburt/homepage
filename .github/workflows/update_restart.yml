@@ -33,5 +33,7 @@ jobs:
 
         echo $VAULT_TOKEN
 
+        chmod +x /app/custom/get_env.sh
+
         docker compose down
         docker compose up -d
