@@ -90,7 +90,6 @@
                 - state: sensor.arkhamknight_current_power
                   label: Current Power
 
-
 - Information:
     - Calendar:
         widget:
@@ -103,7 +102,7 @@
             integrations:
                 - type: ical 
                   url: {{HOMEPAGE_VAR_CALENDAR_ICS}}
-                  name: My Events
-                  color: zinc 
+                  name: Event
+                  color: blue 
                   params: 
                     showName: true
