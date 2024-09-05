@@ -13,8 +13,6 @@
     format: # optional, Intl.NumberFormat options
         maximumFractionDigits: 1
 
-
-
 - search:
     provider: [duckduckgo, brave, google]
     target: _blank
